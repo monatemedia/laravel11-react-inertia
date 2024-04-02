@@ -84,7 +84,7 @@ export default function Dashboard({ auth, projects, queryParams = null }) {
                         Status
                       </TableHeading>
                       <TableHeading
-                        name="create_date"
+                        name="created_at"
                         sort_field={queryParams.sort_field}
                         sort_direction={queryParams.sort_direction}
                         sortChanged={sortChanged}
@@ -148,7 +148,11 @@ export default function Dashboard({ auth, projects, queryParams = null }) {
                         <td className="px-3 py-2">
                           <img src={project.image_path} style={{ width: 60 }} />
                         </td>
-                        <td className="px-3 py-2">{project.name}</td>
+                        <th className="px-3 py-2 hover:underline text-nowrap text-gray-100">
+                          <Link href={route("project.show", project.id)}>
+                            {project.name}
+                          </Link>
+                        </th>
                         <td className="px-3 py-2">
                           <span
                             className={
@@ -160,7 +164,7 @@ export default function Dashboard({ auth, projects, queryParams = null }) {
                           </span>
                         </td>
                         <td className="px-3 py-2 text-nowrap">
-                          {project.create_date}
+                          {project.created_at}
                         </td>
                         <td className="px-3 py-2 text-nowrap">
                           {project.due_date}
