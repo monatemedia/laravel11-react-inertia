@@ -116,7 +116,7 @@ export default function Create({ auth, project }) {
                   <option value="in_progress">In Progress</option>
                   <option value="completed">Completed</option>
                 </SelectInput>
-                <InputError message={errors.status} className="mt-2" />
+                <InputError message={errors.project_status} className="mt-2" />
               </div>
               <div className="mt-4 text-right">
                 <Link
