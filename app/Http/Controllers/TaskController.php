@@ -23,6 +23,7 @@ class TaskController extends Controller
     {
         $query = Task::query();
 
+        /** Sorting fields */
         $sortField = request("sort_field", 'created_at');
         $sortDirection = request("sort_direction", "desc");
 
@@ -38,6 +39,7 @@ class TaskController extends Controller
             ->paginate(10)
             ->onEachSide(1);
 
+        /** Return View */
         return inertia("Task/Index", [
             "tasks" => TaskResource::collection($tasks),
             "queryParams" => request()->query() ?: null,

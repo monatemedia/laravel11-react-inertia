@@ -37,6 +37,7 @@ class UpdateTaskRequest extends FormRequest
                 "required",
                 Rule::in(['low', 'medium', 'high'])
             ],
+            "notes" => ["nullable", "string"]
         ];
     }
 }

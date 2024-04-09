@@ -16,6 +16,7 @@ export default function Create({ auth, task, projects, users }) {
     project_id: task.project_id || "",
     priority: task.priority || "",
     assigned_user_id: task.assigned_user_id || "",
+    notes: task.notes || "",
     _method: "PUT",
   });
 
@@ -173,6 +174,36 @@ export default function Create({ auth, task, projects, users }) {
                   message={errors.assigned_user_id}
                   className="mt-2"
                 />
+              </div>
+
+              <div className="mt-4">
+                <InputLabel htmlFor="task_notes" value="Add New Note" />
+                <div>
+                  <TextAreaInput
+                    id="task_notes"
+                    name="notes"
+                    className="mt-1 block h-64 w-full"
+                    onChange={(e) =>
+                      setData(
+                        "notes",
+                        `On ${new Date().toLocaleDateString("en-US", {
+                          weekday: "long",
+                          day: "2-digit",
+                          month: "long",
+                          year: "numeric",
+                        })} at ${new Date().toLocaleTimeString("en-US", {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                        })} ${auth.user.name} wrote:\n${e.target.value}\n\n${
+                          task.notes
+                        }`
+                      )
+                    }
+                    placeholder="Make a New Note"
+                  />
+                  <InputError message={errors.notes} className="mt-2" />
+                </div>
               </div>
               <div className="mt-4 text-right">
                 <Link

@@ -13,6 +13,7 @@ export default function Create({ auth, projects, users }) {
     status: "",
     description: "",
     due_date: "",
+    notes: "",
   });
 
   const onSubmit = (e) => {
@@ -160,6 +161,20 @@ export default function Create({ auth, projects, users }) {
                   message={errors.assigned_user_id}
                   className="mt-2"
                 />
+              </div>
+
+              <div className="mt-4">
+                <InputLabel htmlFor="task_notes" value="Add Note" />
+                <div>
+                  <TextAreaInput
+                    id="task_notes"
+                    name="notes"
+                    className="mt-1 block h-64 w-full"
+                    onChange={(e) => setData("notes", e.target.value)}
+                    placeholder="Make a New Note"
+                  />
+                  <InputError message={errors.notes} className="mt-2" />
+                </div>
               </div>
 
               <div className="mt-4 text-right">
