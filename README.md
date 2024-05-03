@@ -9,6 +9,12 @@
 
 ## Set Up on Shared Hosting As a Subdomain with Github Actions and CI/CD Pipelines
 
+### Resources
+
+-   The Codeholic [Laravel Hosting with Github Actions - Part 45 | Laravel Social Media Website](https://www.youtube.com/watch?v=mBdzv4-PMtQ&t=21s)
+-   The Codeholic [How to Deploy Laravel on Shared Hosting in 12 minutes](https://www.youtube.com/watch?v=dpJDV25tptw&t=621s)
+-   Traversy Media [Deploy Laravel To Shared Hosting The Easy Way](https://www.youtube.com/watch?v=6g8G3YQtQt4)
+
 ## Linux Terminal Cheat Sheet
 
 -   List directory `ls -ln`
@@ -94,7 +100,7 @@ php -r "unlink('composer-setup.php');"`
 
 ### Run Migrations
 
-24. Execute `php artisan migrate` to run migrate to run migrations or `php artisan migrate:refresh` to refresh migrations.
+24. Execute `php artisan migrate` to run migrate to run migrations or `php artisan migrate:refresh` to refresh migrations and reset the application.
 25. The terminal should confirm that the migrations have been run
 
 ### Create Symbolic Link to Subdomain
@@ -109,6 +115,14 @@ php -r "unlink('composer-setup.php');"`
 
 31. Go back into your project folder like so `cd laravel11-react-inertia`
 32. Execute `php artisan storage:link` and the terminal should respond with INFO: The [public/storage] link has connected to [storage/app/public]
+
+### Clearing Cache (Optional)
+
+33. Run `php artisan route:cache`
+34. Run `php artisan cache:clear`
+35. Run `php artisan config:cache`
+36. Run `php artisan view:clear`
+37. Run `php artisan optimize`
 
 ## Connect SMTP
 
@@ -127,9 +141,16 @@ If your application requires user authentication by email, you must set up SMTP.
 
 You have now successfully uploaded your project to shared hosting with Github. If you are looking to connect your Github with your app on the shared hosting account with continuous integration and continuous delivery/deployment (CI/CD) so that when code is pushed to the main branch of your Github repository, the application will be built and uploaded on your production server... then read on.
 
+Reference article: [How to Create CI/CD Pipeline for Your Laravel Project With Github Actions](https://redberry.international/creating-ci-cd-pipeline-for-laravel-project/)
+
 ### Prevent `run npm build` build folder being pushed
 
 1. Go to your .gitignore file in your code editor on your local machine and insert these lines `/public/build` to prevent your local build folder being pushed. The build folder will be created by Github's Node runner.
+
+### Insert Public Key Into Project
+
+1. Change directories into your root directory with command `cd ~/`
+2. Execute `ssh-keygen`
 
 ## About Laravel
 
