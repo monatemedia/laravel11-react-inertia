@@ -130,12 +130,12 @@ If your application requires user authentication by email, you must set up SMTP.
 
 ### Register First User
 
-1. visit your site at `subdomain.yourdomainname.com/register` and register a new user. If you have authenication turned on, your app will have attempted to send you an email, but failed because SMTP is not yet configured.
-2. In your cPanel, search for databases and phpMyAdmin into your database
-3. In your database, select `users`. You should find your first user's data there.
-4. Select `Edit` in line with the user's name
-5. When the Edit form appears, in the Email Verified At section, use the date picker to select today's date. Scroll to the bottom of the page and select `Go` to run the query
-6. go back to your site at `subdomain.yourdomainname.com/login` and log into the account you created
+38. visit your site at `subdomain.yourdomainname.com/register` and register a new user. If you have authenication turned on, your app will have attempted to send you an email, but failed because SMTP is not yet configured.
+39. In your cPanel, search for databases and phpMyAdmin into your database
+40. In your database, select `users`. You should find your first user's data there.
+41. Select `Edit` in line with the user's name
+42. When the Edit form appears, in the Email Verified At section, use the date picker to select today's date. Scroll to the bottom of the page and select `Go` to run the query
+43. go back to your site at `subdomain.yourdomainname.com/login` and log into the account you created
 
 ## Connecting the CI/CD pipes
 
@@ -145,12 +145,13 @@ Reference article: [How to Create CI/CD Pipeline for Your Laravel Project With G
 
 ### Prevent `run npm build` build folder being pushed
 
-1. Go to your .gitignore file in your code editor on your local machine and insert these lines `/public/build` to prevent your local build folder being pushed. The build folder will be created by Github's Node runner.
+44. Go to your .gitignore file in your code editor on your local machine and insert these lines `/public/build` to prevent your local build folder being pushed. The build folder will be created by Github's Node runner.
 
 ### Insert Public Key Into Project
 
-1. Change directories into your root directory with command `cd ~/`
-2. Execute `ssh-keygen`
+45. Change directories into your root directory with command `cd ~/`
+46. Execute `ssh-keygen` on server
+47. Provide
 
 ## About Laravel
 
