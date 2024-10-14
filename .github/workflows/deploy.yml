@@ -8,7 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -40,6 +39,10 @@ jobs:
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: ${{ secrets.VPS_USER }}
           TARGET: "/var/www/html/sales.monatemedia.com"
+        with:
+          flags: "-avzrltgoDzvO --delete"
+          port: 22
+
       - name: Run Remote/Artisan Commands
         uses: appleboy/ssh-action@v0.1.6
         with:
